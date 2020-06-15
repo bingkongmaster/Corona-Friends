@@ -7,7 +7,7 @@ export default function Home() {
     <div style={{ color: `purple` }}>
       <Link to="/contact/">Contact</Link>
       <Header headerText="Dong Hwan Kim" />
-      <p>Welcome!</p>
+      <p>Welcome to donghwankim.com!</p>
       <img src="https://source.unsplash.com/random/400x200" alt="" />
     </div>
   )
