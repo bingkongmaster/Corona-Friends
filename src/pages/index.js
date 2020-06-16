@@ -8,6 +8,7 @@ export default function Home() {
       <Link to="/contact/">Contact</Link>
       <Header headerText="Dong Hwan Kim" />
       <p>Welcome to donghwankim.com!</p>
+      <p>Powered by Gatsby</p>
       <img src="https://source.unsplash.com/random/400x200" alt="" />
     </div>
   )
