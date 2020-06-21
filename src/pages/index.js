@@ -85,15 +85,43 @@ export default class Home extends React.Component {
     )}
 }
 */
-
+/*
 import React from "react"
+import {Map} from 'kakao-map-react'
 
 export default class Home extends React.Component {
   render() {
     return (
       <div style={{ color: `purple` }}>
-        <p>hi</p>
+        <p>hi2</p>
         <div id="map" style={{ height: '2000px',width: '2000px'}}></div>
+        <Map id='map' 
+        initialPosition={{latitude:'37.56577', longitude:'126.98019'}}
+        center={{latitude:'37.56577', longitude:'126.98019'}} />
       </div>
     )}
+}
+*/
+
+import React, { useEffect } from "react"
+
+
+export default function Home(props){
+  useEffect(() => {
+    let container = document.getElementById('map');
+    let options = {
+      center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+      level: 3
+    };
+  
+    let map = new window.kakao.maps.Map(container, options);
+  
+  }, [])
+  return (
+    <div style={{ color: `purple` }}>
+      <p>코로나맵</p>
+      <p>By.김동환</p>
+      <div id="map" style={{ width: "100vw", height: "100vh" }}></div>
+    </div>
+  )
 }
