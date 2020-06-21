@@ -110,18 +110,16 @@ export default function Home(props){
   useEffect(() => {
     let container = document.getElementById('map');
     let options = {
-      center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-      level: 3
+      center: new window.kakao.maps.LatLng(36.13345, 127.96176),
+      level: 13
     };
   
     let map = new window.kakao.maps.Map(container, options);
   
   }, [])
   return (
-    <div style={{ color: `purple` }}>
-      <p>코로나맵</p>
-      <p>By.김동환</p>
-      <div id="map" style={{ width: "100vw", height: "100vh" }}></div>
-    </div>
+    <>
+    <div id="map" style={{ width: "100vw", height: "100vh", margin: "0", padding: "0"}}></div>
+    </>
   )
 }
