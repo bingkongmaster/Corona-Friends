@@ -23,7 +23,7 @@ export default function HTML(props) {
         {props.postBodyComponents}
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
-        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=27fdc2aef0e1d0d117c399ce69e29e17"></script>
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=27fdc2aef0e1d0d117c399ce69e29e17&libraries=services"></script>
       </body>
     </html>
   )
