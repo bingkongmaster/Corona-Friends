@@ -5,6 +5,16 @@
  */
 
 module.exports = {
+  //sitemetadata
+  siteMetadata: {
+    title: "코로나 친구",
+    titleTemplate: "%s · 코로나맵",
+    description:
+      "주변 코로나 친구들을 찾아요!",
+    url: "https://www.coronamap.cc", // No trailing slash allowed!
+    image: "src/images/corona2.png", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@coronacc",
+  },
   /* Your site config here */
   plugins: [
     {
@@ -17,6 +27,8 @@ module.exports = {
         theme_color: `#a2466c`,
         display: `standalone`,
         icon: `src/images/corona2.png`,
+        //favicon source:
+        //https://icons8.com/icons/set/corona
       },
     },
   ],
