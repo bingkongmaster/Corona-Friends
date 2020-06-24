@@ -2,6 +2,8 @@
 import React, { useEffect } from "react"
 import AppStyles from "./App.module.css"
 import coronaData from "../data/coronaData.js"
+import redmarker from'../images/redperson.png';
+
 
 export default function App(props){
   useEffect(() => {
@@ -24,22 +26,22 @@ export default function App(props){
     function displayMarkerCoronaData() {
         // 마커가 표시될 위치입니다 
         for(var i = 0; i < coronaData.length; i++){
-            /*
-            var locPosition = new kakao.maps.LatLng(coronaData[i].latitude, coronaData[i].longitude),
-                message = coronaData[i].name;
-                
-            // 마커와 인포윈도우를 표시합니다
-            displayMarker(locPosition, message);
-            */
             var markerPosition  = new kakao.maps.LatLng(coronaData[i].latitude, coronaData[i].longitude); 
 
-            // 마커를 생성합니다
-            var savedmarker = new kakao.maps.Marker({
-                position: markerPosition
-            });
+            var imageSize = new kakao.maps.Size(20, 20); 
+            // 마커 이미지를 생성합니다    
+            var markerImage = new kakao.maps.MarkerImage(redmarker, imageSize); 
 
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                position: markerPosition,
+                title: coronaData[i].name,
+                image : markerImage
+            });
+            
             // 마커가 지도 위에 표시되도록 설정합니다
-            savedmarker.setMap(map);
+            marker.setMap(map);
+
             
         }
     }
