@@ -6,17 +6,17 @@ export default function App(props){
   useEffect(() => {
     let container = document.getElementById('map');
     let options = {
-      center: new window.kakao.maps.LatLng(36.13345, 127.96176),
+      center: new kakao.maps.LatLng(36.13345, 127.96176),
       level: 13
     };
   
-    let map = new window.kakao.maps.Map(container, options);
+    let map = new kakao.maps.Map(container, options);
 
     // 마커가 표시될 위치입니다 
-    var markerPosition  = new window.kakao.maps.LatLng(33.450701, 126.570667); 
+    var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
 
     // 마커를 생성합니다
-    var savedmarker = new window.kakao.maps.Marker({
+    var savedmarker = new kakao.maps.Marker({
         position: markerPosition
     });
 
@@ -36,7 +36,7 @@ export default function App(props){
             var lat = position.coords.latitude, // 위도
                 lon = position.coords.longitude; // 경도
             
-            var locPosition = new window.kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+            var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
                 message = '<div style="padding:5px;">내 위치!</div>'; // 인포윈도우에 표시될 내용입니다
             console.log(lat);
             console.log(lon);
@@ -48,7 +48,7 @@ export default function App(props){
         
     } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
         
-        var locPosition = new window.kakao.maps.LatLng(33.450701, 126.570667),    
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
             message = 'geolocation을 사용할수 없어요..'
             
         displayMarker(locPosition, message);
@@ -58,7 +58,7 @@ export default function App(props){
     function displayMarker(locPosition, message) {
 
         // 마커를 생성합니다
-        var marker = new window.kakao.maps.Marker({  
+        var marker = new kakao.maps.Marker({  
             map: map, 
             position: locPosition
         }); 
@@ -67,7 +67,7 @@ export default function App(props){
             iwRemoveable = true;
 
         // 인포윈도우를 생성합니다
-        var infowindow = new window.kakao.maps.InfoWindow({
+        var infowindow = new kakao.maps.InfoWindow({
             content : iwContent,
             removable : iwRemoveable
         });

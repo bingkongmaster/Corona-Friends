@@ -7,7 +7,7 @@
 module.exports = {
   //sitemetadata
   siteMetadata: {
-    title: "코로나 친구",
+    title: "코로나친구",
     titleTemplate: "",//"%s · 코로나맵",
     description:
       "주변 코로나 친구들을 찾아요!",
