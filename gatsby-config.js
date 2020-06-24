@@ -12,7 +12,7 @@ module.exports = {
     description:
       "주변 코로나 친구들을 찾아요!",
     url: "https://www.coronamap.cc", // No trailing slash allowed!
-    image: "src/images/corona2.png", // Path to your image you placed in the 'static' folder
+    image: "src/images/corona5.png",//(useless) // Path to your image you placed in the 'static' folder
     twitterUsername: "@coronacc",
   },
   /* Your site config here */
@@ -26,7 +26,7 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `standalone`,
-        icon: `src/images/corona2.png`,
+        icon: `src/images/corona5.png`,
         //favicon source:
         //https://icons8.com/icons/set/corona
       },
