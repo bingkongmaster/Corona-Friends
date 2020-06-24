@@ -41,7 +41,10 @@ export default function App(props){
             
             // 마커에 표시할 인포윈도우를 생성합니다 
             var infowindow = new kakao.maps.InfoWindow({
-                content: '<div style="padding:5px; font-weight:bold";>'+coronaData[i].name+'</div>' // 인포윈도우에 표시할 내용
+                content: '<div style="padding:5px; font-weight:bold";>'
+                + '<img src="favicon-32x32.png" style="width:24px;height:24px;">'//this brings favicon in built public file
+                + coronaData[i].name
+                + '</img></div>'
             });
 
             // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
@@ -76,7 +79,7 @@ export default function App(props){
     
     // !내위치 찾기
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
-    /*
+    
     function setGeolocation() {
         if (navigator.geolocation) {
             
@@ -90,12 +93,14 @@ export default function App(props){
                     message = '<div style="padding:5px;">전 여기에요!</div>'; // 인포윈도우에 표시될 내용입니다
                     
                 // 마커와 인포윈도우를 표시합니다
-                displayMarker(locPosition, message);
+                //displayMarker(locPosition, message);
                 zoomMove(locPosition);
                     
             });
             
-        } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+        }
+        /* 
+        else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
             
             var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
                 message = '길을 잃었어요..'
@@ -104,9 +109,10 @@ export default function App(props){
             displayMarker(locPosition, message);
             zoomMove(locPosition);
         }
+        */
     }
     setGeolocation();
-    */
+    
     // 지도에 마커와 인포윈도우를 표시하는 함수입니다
     function displayMarker(locPosition, message) {
 
