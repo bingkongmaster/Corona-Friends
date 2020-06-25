@@ -36,7 +36,8 @@ export default function App(props){
             var marker = new kakao.maps.Marker({
                 position: markerPosition,
                 title: coronaData[i].name,
-                image : markerImage
+                image : markerImage,
+                isOpen: false
             });
             
             // 마커에 표시할 인포윈도우를 생성합니다 
@@ -47,11 +48,12 @@ export default function App(props){
                 + '</img></div>'
             });
 
-            // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-            // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-            // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+            //마우스 hover functions
             kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(map, marker, infowindow));
+
+            //마우스 click function
+            kakao.maps.event.addListener(marker, 'click', makeClickListener(map, marker, infowindow));
 
             // 마커가 지도 위에 표시되도록 설정합니다
             marker.setMap(map);
@@ -62,6 +64,21 @@ export default function App(props){
     displayMarkerCoronaData();
 
     // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+    function makeClickListener(map, marker, infowindow) {
+        return function() {
+            if(marker.isOpen){
+                infowindow.close();
+                marker.isOpen = false;
+            }
+            else{
+                infowindow.open(map, marker);
+                marker.isOpen = true;
+            }
+            
+        };
+    }
+
+    // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
     function makeOverListener(map, marker, infowindow) {
         return function() {
             infowindow.open(map, marker);
@@ -69,9 +86,11 @@ export default function App(props){
     }
 
     // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-    function makeOutListener(infowindow) {
+    function makeOutListener(map, marker, infowindow) {
         return function() {
-            infowindow.close();
+            if(!marker.isOpen){
+                infowindow.close();
+            }
         };
     }
     //-----------------------------------------------------------------------------------------------------------
